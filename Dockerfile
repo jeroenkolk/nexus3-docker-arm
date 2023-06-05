@@ -9,7 +9,7 @@ RUN wget --quiet --output-document=/tmp/nexus.tar.gz "${NEXUS_DOWNLOAD_URL}" && 
     mv /tmp/sonatype/nexus-${NEXUS_VERSION} /tmp/sonatype/nexus && \
     rm /tmp/nexus.tar.gz
 
-FROM eclipse-temurin:8-jre
+FROM eclipse-temurin:17.0.7_7-jre
 
 ENV SONATYPE_DIR=/opt/sonatype
 ENV NEXUS_HOME=${SONATYPE_DIR}/nexus \
