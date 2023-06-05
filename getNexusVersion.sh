@@ -21,5 +21,6 @@ else
     --platform "linux/arm/v7,linux/arm64" \
     --pull \
     --tag "$REGISTRY_USER/nexus3-docker-arm:main" \
-    --tag "$REGISTRY_USER/nexus3-docker-arm:$NEXUS_VERSION"
+    --tag "$REGISTRY_USER/nexus3-docker-arm:$NEXUS_VERSION" \
+    --output "type=image,push=true" \
 fi
