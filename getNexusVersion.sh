@@ -14,13 +14,12 @@ NEXUS_VERSION_ARRAY=(${FULL_NEXUS_VERSION//-/ })
 NEXUS_VERSION=${NEXUS_VERSION_ARRAY[0]}
 
 if docker_tag_exists jeroenkolk/nexus3-docker-arm $NEXUS_VERSION; then
-    echo exist
+    echo "Image already exists skipping this run"
 else
-  echo $FULL_NEXUS_VERSION
   docker buildx build . --build-arg=NEXUS_VERSION=$FULL_NEXUS_VERSION \
     --platform "linux/arm/v7,linux/arm64" \
     --pull \
     --tag "$REGISTRY_USER/nexus3-docker-arm:main" \
     --tag "$REGISTRY_USER/nexus3-docker-arm:$NEXUS_VERSION" \
-    --output "type=image,push=true" \
+    --output "type=image,push=true"
 fi
