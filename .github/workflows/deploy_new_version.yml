@@ -25,4 +25,6 @@ jobs:
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: Build and push Image
-        run: ./getNexusVersion.sh
+        run: |
+          export REGISTRY_USER=${{ secrets.REGISTRY_USER }}
+          ./getNexusVersion.sh
